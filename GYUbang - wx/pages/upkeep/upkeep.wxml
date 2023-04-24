@@ -1,0 +1,70 @@
+<view class="body">
+    <view>
+        <image style="width: 750rpx; height: 306rpx; display: block; box-sizing: border-box; box-shadow: 2rpx 2rpx 25rpx rgba(0, 0, 0, 0.55); border-radius: 8px; overflow: hidden" src="../../img/test_weixiu.jpg" />
+    </view>
+    <van-sticky>
+        <view style="height: 100rpx; background-color: rgb(255, 255, 255); box-shadow: 2rpx 2rpx 20rpx rgba(0, 0, 0, 0.15); display: flex; justify-content: space-between;">
+            <text style="line-height: 100rpx; font-size: 46rpx; margin-left: 20rpx;">我的维修申请：</text>
+            <van-button style="margin: 5rpx 20rpx; " type="primary" size="normal" bindtap="gotoInsertUpkeep">新的申请</van-button>
+        </view>
+    </van-sticky>
+
+    <!-- 列表渲染我的维修申请信息 -->
+    <view wx:for="{{ Upkeep }}" wx:key="id">
+        <view style="margin: 20rpx 20rpx; padding: 20rpx 40rpx; background-color: white; border-radius: 13px; box-shadow: 2rpx 2rpx 15rpx rgba(5, 0, 0, 0.55);">
+            <van-panel title="" desc="" status="">
+                <view slot="header">
+                    <view style="margin-left: 20rpx; margin: 10rpx 0rpx; font-weight:600; font-size: 46rpx;">维修申请</view>
+                </view>
+                <view class="home-header-line" />
+                <view style="height: 20rpx;" />
+                <view style="margin-top: 10rpx; font-size: 35rpx;">
+                    <van-icon name="coupon-o" />
+                    <text> 维修原因：{{ item.cause }}</text>
+                </view>
+                <view style="height: 10rpx;" />
+                <view style="margin-top: 10rpx; font-size: 35rpx;">
+                    <van-icon name="underway-o" />
+                    <text> 申请日期：{{ item.applicationTime }}</text>
+                </view>
+                <view style="height: 10rpx;" />
+                <view style="margin-top: 10rpx; font-size: 35rpx;">
+                    <van-icon name="home-o" />
+                    <text> 维修地址：{{ item.address }}</text>
+                </view>
+                <view style="height: 10rpx;" />
+                <view style="margin-top: 10rpx; font-size: 35rpx;">
+                    <van-icon name="service-o" />
+                    <text> 是否处理：</text>
+                    <van-icon name="{{item.statusIf? 'checked' : 'clear'}}" color="{{item.statusIf? 'green' : 'red'}}" />
+                    <text style="color: {{item.statusIf? 'green' : 'red'}};">{{item.statusIf? "已处理" : "未处理" }}</text>
+                </view>
+                <view style="height: 20rpx;" />
+                <view class="home-header-line" />
+                <view slot="footer" style="text-align: right;">
+                    <van-button type="primary" size="small" id="{{ index }}" bindtap="info">详 情</van-button>
+                </view>
+            </van-panel>
+        </view>
+    </view>
+
+    <!-- 详情弹窗 -->
+    <van-dialog use-slot title="维修申请详情" show="{{ show }}" bind:close="onClose" bind:getuserinfo="getUserInfo">
+        <view class="home-header-line" style="margin-top: 20rpx;" />
+        <view style="height: 20rpx;"/>
+        <view style="display: flex; flex-direction: column; justify-content: flex-start;">
+            <text style="margin: 10rpx 40rpx;">维修原因：{{ qUpkeep.cause }}</text>
+            <text style="margin: 10rpx 40rpx;">申请人：{{ qUpkeep.author }}</text>
+            <text style="margin: 10rpx 40rpx;">申请日期：{{ qUpkeep.applicationTime }}</text>
+            <text style="margin: 10rpx 40rpx;">维修地址：{{ qUpkeep.address }}</text>
+            <text style="margin: 10rpx 40rpx;">是否处理：<text style="color: {{qUpkeep.statusIf? 'green' : 'red'}};">{{ qUpkeep.statusIf? "已处理":"未处理" }}</text></text>
+            <text style="margin: 10rpx 40rpx;" wx:if="{{ qUpkeep.statusIf }}">处理结果：<text style="color: {{qUpkeep.status? 'green' : 'red'}};">{{ qUpkeep.status? "申请已通过":"申请未通过" }}</text></text>
+            <text style="margin: 10rpx 40rpx;" wx:if="{{ qUpkeep.statusIf }}">处理反馈：{{ qUpkeep.statusFeedback }}</text>
+            <text style="margin: 10rpx 40rpx;" wx:if="{{ qUpkeep.statusIf }}">处理时间：{{ qUpkeep.statusTime }}</text>
+            <view style="height: 20rpx;"/>
+            <view class="home-header-line" style="margin-top: 20rpx;" />
+        </view>
+    </van-dialog>
+
+    <view style="height: 50rpx;" />
+</view>

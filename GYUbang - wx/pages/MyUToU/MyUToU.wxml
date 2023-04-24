@@ -1,0 +1,145 @@
+<view class="body">
+    <van-tabs bind:click="onClick">
+        <van-tab title="我发起的悬赏">
+            <!-- 列表渲染我发起的悬赏信息 -->
+            <view wx:for="{{ UToU }}" wx:key="id">
+                <view style="padding: 10rpx 40rpx; background-color: white; margin: 20rpx 20rpx; border-radius: 13px; box-shadow: 2rpx 2rpx 15rpx rgba(0, 0, 0, 0.25);">
+                    <view style="height: 20rpx;" />
+                    <van-panel title="" desc="" status="">
+                        <view slot="header">
+                            <view style="margin-left: 20rpx; margin: 10rpx 0rpx; font-weight:600; font-size: 40rpx;">发起的快递代领</view>
+                        </view>
+                        <view style="height: 20rpx;" />
+                        <view class="home-header-line" />
+                        <view style="height: 20rpx;" />
+                        <view style="margin-top: 20rpx; font-size: 35rpx;">
+                            <van-icon name="wap-home-o" />
+                            <text> 取件地址：{{ item.addressQ }}</text>
+                        </view>
+                        <view style="height: 20rpx;" />
+                        <view style="margin-top: 10rpx; font-size: 35rpx;">
+                            <van-icon name="shield-o" />
+                            <text> 取件密码：{{ item.password }}</text>
+                        </view>
+                        <view style="height: 20rpx;" />
+                        <view style="margin-top: 10rpx; font-size: 35rpx;">
+                            <van-icon name="logistics" />
+                            <text> 送件地址：{{ item.addressS }}</text>
+                        </view>
+                        <view style="height: 20rpx;" />
+                        <view style="margin-top: 10rpx; font-size: 35rpx;">
+                            <van-icon name="after-sale" />
+                            <text> 悬赏金额：{{ item.money }} 元</text>
+                        </view>
+                        <view style="height: 20rpx;" />
+                        <view style="margin-top: 10rpx; font-size: 35rpx;">
+                            <van-icon name="completed" />
+                            <text> 是否接取：<text style="color: {{ item.statusB? 'green' : 'red' }};">{{ item.statusB? "已被接取":"未被接取" }}</text></text>
+                        </view>
+                        <view style="height: 20rpx;" />
+                        <view style="margin-top: 10rpx; font-size: 35rpx;" wx:if="{{ item.statusB }}">
+                            <van-icon name="contact" />
+                            <text> 接取人：{{ item.authorB }}</text>
+                        </view>
+                        <view style="height: 30rpx;" />
+
+                        <!-- 分割线 -->
+                        <view class="home-header-line" />
+                        <view style="height: 10rpx;" />
+
+                        <view wx:if="{{ !item.statusC }}">
+                            <view wx:if="{{ !item.statusAx }}">
+                                <view slot="footer" style="text-align: right;" wx:if="{{ !item.statusA }}">
+                                    <van-button type="primary" size="small" data-id="{{ item.id }}" bindtap="OkUToT" style="position: relative; left: -22rpx; top: 5rpx" wx:if="{{ item.statusB }}">完成悬赏</van-button>
+                                    <van-button style="position: relative; left: 0rpx; top: 5rpx" type="danger" size="small" data-id="{{ item.id }}" bindtap="qUToT">取消悬赏</van-button>
+                                </view>
+                                <view wx:if="{{ item.statusA }}" style="margin-top: 10prx; text-align: right; height: 80rpx;">
+                                    <van-icon name="checked" color="green" size="20px" />
+                                    <text style="line-height: 80rpx; font-size: 40rpx; color: green;"> 悬赏已完成</text>
+                                </view>
+                            </view>
+                            <view wx:if="{{ item.statusAx }}" style="margin-top: 10prx; text-align: right; height: 80rpx;">
+                                <van-icon name="clear" color="red" size="20px" />
+                                <text style="line-height: 80rpx; font-size: 40rpx; color: red;">悬赏已取消</text>
+                            </view>
+                        </view>
+                        <view wx:if="{{ item.statusC }}" style="margin-top: 10prx; text-align: right; height: 80rpx;">
+                            <van-icon name="clear" color="red" size="20px" />
+                            <text style="line-height: 80rpx; font-size: 40rpx; color: red;">悬赏已被管理员冻结</text>
+                        </view>
+                        <view wx:if="{{ item.statusC }}" style="margin-top: 10prx; text-align: right; height: 80rpx;">
+                            <text style="font-size: 40rpx; position: relative; left: -340rpx; top: 0rpx;">冻结反馈：</text>
+                            <text style="font-size: 40rpx; position: relative; left: -340rpx; top: 0rpx;">{{ item.statusFeedback }}</text>
+                        </view>
+                        <view style="height: 10rpx;" />
+                    </van-panel>
+                </view>
+            </view>
+        </van-tab>
+        <van-tab title="我接取的悬赏">
+            <!-- 列表渲染我接取的悬赏信息 -->
+            <view wx:for="{{ qUToU }}" wx:key="id">
+                <view style="padding: 10rpx 40rpx; background-color: white; margin: 20rpx 20rpx; border-radius: 13px; box-shadow: 2rpx 2rpx 15rpx rgba(0, 0, 0, 0.25);">
+                    <view style="height: 20rpx;" />
+                    <van-panel title="" desc="" status="">
+                        <view slot="header">
+                            <view style="margin-left: 20rpx; margin: 10rpx 0rpx; font-weight:600; font-size: 40rpx;">接取的快递代领</view>
+                        </view>
+                        <view style="height: 20rpx;" />
+                        <view class="home-header-line" />
+                        <view style="height: 20rpx;" />
+                        <view style="margin-top: 20rpx; font-size: 35rpx;">
+                            <van-icon name="wap-home-o" />
+                            <text> 取件地址：{{ item.addressQ }}</text>
+                        </view>
+                        <view style="height: 20rpx;" />
+                        <view style="margin-top: 10rpx; font-size: 35rpx;">
+                            <van-icon name="shield-o" />
+                            <text> 取件密码：{{ item.password }}</text>
+                        </view>
+                        <view style="height: 20rpx;" />
+                        <view style="margin-top: 10rpx; font-size: 35rpx;">
+                            <van-icon name="logistics" />
+                            <text> 送件地址：{{ item.addressS }}</text>
+                        </view>
+                        <view style="height: 20rpx;" />
+                        <view style="margin-top: 10rpx; font-size: 35rpx;">
+                            <van-icon name="after-sale" />
+                            <text> 悬赏金额：{{ item.money }} 元</text>
+                        </view>
+                        <view style="height: 20rpx;" />
+                        <view style="margin-top: 10rpx; font-size: 35rpx;" wx:if="{{ item.statusB }}">
+                            <van-icon name="contact" />
+                            <text> 发布人：{{ item.authorA }}</text>
+                        </view>
+                        <view style="height: 30rpx;" />
+
+                        <!-- 分割线 -->
+                        <view class="home-header-line" />
+
+                        <view wx:if="{{ !item.statusAx }}">
+                            <view wx:if="{{ !item.statusA }}">
+                                <view style="margin-top: 10prx; text-align: right; height: 80rpx;">
+                                    <text style="line-height: 80rpx; font-size: 40rpx; color: rgb(255, 145, 0);">发布人未确认完成</text>
+                                </view>
+                            </view>
+                            <view wx:if="{{ item.statusA }}">
+                                <view style="margin-top: 10prx; text-align: right; height: 80rpx;">
+                                    <text style="line-height: 80rpx; font-size: 40rpx; color: green;">发布人确认悬赏已完成</text>
+                                </view>
+                            </view>
+                        </view>
+                        <view wx:if="{{ item.statusAx }}">
+                            <view style="margin-top: 10prx; text-align: right; height: 80rpx;">
+                                <text style="line-height: 80rpx; font-size: 40rpx; color: red;">发布人已取消，请联系管理员</text>
+                            </view>
+                        </view>
+                    </van-panel>
+                </view>
+            </view>
+        </van-tab>
+    </van-tabs>
+    <!-- 弹窗 -->
+    <van-dialog id="van-dialog" />
+    <view style="height: 50rpx;" />
+</view>

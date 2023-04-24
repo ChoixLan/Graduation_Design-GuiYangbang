@@ -1,0 +1,8 @@
+<view class="container log-list">
+    <image style="width: 668rpx; height: 376rpx; display: block; box-sizing: border-box; box-shadow: 2rpx 2rpx 25rpx rgba(0, 0, 0, 0.55); border-radius: 8px; overflow: hidden" src="../../img/test_weixiu.jpg" mode="aspectFit" bindtap="gotoUpkeep"/>
+    <view style="height: 20rpx;"/>
+    <image style="width: 668rpx; height: 376rpx; display: inline-block; box-sizing: border-box; box-shadow: 2rpx 2rpx 25rpx rgba(0, 0, 0, 0.55); border-radius: 8px; overflow: hidden" src="../../img/test_dailing.jpg" mode="aspectFit"  bindtap="gotoUToU"/>
+    <view style="height: 20rpx;"/>
+    <image style="width: 668rpx; height: 376rpx; display: inline-block; box-sizing: border-box; box-shadow: 2rpx 2rpx 25rpx rgba(0, 0, 0, 0.55); border-radius: 8px; overflow: hidden" src="../../img/test_zhaoling.jpg" mode="aspectFit"  bindtap="gotoLostArticle"/>
+    <view style="height: 100rpx;"/>
+</view>

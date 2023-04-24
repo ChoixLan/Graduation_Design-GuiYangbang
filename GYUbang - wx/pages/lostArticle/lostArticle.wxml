@@ -1,0 +1,76 @@
+<view class="body">
+    <van-tabs bind:click="onClick" sticky>
+        <van-tab title="失物">
+            <view style="height: 110rpx; line-height: 100rpx; text-align: center; background-color: white; margin: 20rpx 20rpx; border-radius: 8px; box-shadow: 2rpx 2rpx 15rpx rgba(0, 0, 0, 0.15);">
+                <van-button type="primary" bindtap="lost" size="normal" style="position: relative; left: -20rpx; top: 0rpx">寻找失物</van-button>
+            </view>
+            <view style="padding: 10rpx 20rpx; background-color: white; margin: 10rpx 20rpx; border-radius: 8px; display: flex; justify-content: space-between; box-shadow: 2rpx 2rpx 15rpx rgba(0, 0, 0, 0.15);">
+                <text style="line-height: 170%; margin-left: 25rpx; ">公告排序：{{ sortRule? "日期正序" : "日期倒序" }}</text>
+                <van-button type="primary" size="small" bindtap="renovate" style="position: relative; left: 46rpx; top: 0rpx">刷 新</van-button>
+                <van-button type="primary" size="small" bindtap="mySort" data-property="id">切 换</van-button>
+            </view>
+            <view wx:for="{{ lostArticle }}" wx:key="id">
+                <view wx:if="{{ item.statusx }}">
+                    <view wx:if="{{ !item.status }}" style="padding: 10rpx 40rpx; background-color: white; margin: 20rpx 20rpx; border-radius: 8px; box-shadow: 2rpx 2rpx 15rpx rgba(0, 0, 0, 0.15);">
+                        <van-panel title="" desc="" status="">
+                            <view slot="header">
+                                <view style="margin-left: 20rpx; margin: 10rpx 0rpx; font-weight:600; font-size: 40rpx;">寻找失物</view>
+                            </view>
+                            <view class="home-header-line" />
+                            <view style="margin-top: 20rpx; font-size: 35rpx;">
+                                <text>描述： {{ item.content }}</text>
+                            </view>
+                            <view style="margin-top: 20rpx; text-align: left;">
+                                <van-image fit="contain" width="300rpx" height="300rpx" lazy-load src="{{ item.image }}" bind:click="previewImage" data-url="{{ item.image }}" />
+                            </view>
+                            <view class="home-header-line" />
+                            <view slot="footer" style="text-align: right;">
+                                <van-button type="primary" size="small" id="{{ item.id }}" bindtap="lostDetails">详 情</van-button>
+                            </view>
+                        </van-panel>
+                    </view>
+                </view>
+
+            </view>
+
+        </van-tab>
+        <van-tab title="招领">
+
+            <view style="height: 110rpx; line-height: 100rpx; text-align: center; background-color: white; margin: 20rpx 20rpx; border-radius: 8px; box-shadow: 2rpx 2rpx 15rpx rgba(0, 0, 0, 0.15);">
+                <van-button type="primary" bindtap="lost0" size="normal" style="position: relative; left: -20rpx; top: 0rpx">发布招领</van-button>
+            </view>
+            <view style="padding: 10rpx 20rpx; background-color: white; margin: 10rpx 20rpx; border-radius: 8px; display: flex; justify-content: space-between; box-shadow: 2rpx 2rpx 15rpx rgba(0, 0, 0, 0.15);">
+                <text style="line-height: 170%; margin-left: 25rpx; ">公告排序：{{ sortRule? "日期正序" : "日期倒序" }}</text>
+                <van-button type="primary" size="small" bindtap="renovate" style="position: relative; left: 46rpx; top: 0rpx">刷 新</van-button>
+                <van-button type="primary" size="small" bindtap="mySort" data-property="id">切 换</van-button>
+            </view>
+            <view wx:for="{{ lostArticle }}" wx:key="id">
+                <view wx:if="{{ item.statusx }}">
+                    <view wx:if="{{ item.status }}" style="padding: 10rpx 40rpx; background-color: white; margin: 20rpx 20rpx; border-radius: 8px; box-shadow: 2rpx 2rpx 15rpx rgba(0, 0, 0, 0.15);">
+                        <van-panel title="" desc="" status="">
+                            <view slot="header">
+                                <view style="margin-left: 20rpx; margin: 10rpx 0rpx; font-weight:600; font-size: 40rpx;">招领启示</view>
+                            </view>
+                            <view class="home-header-line" />
+                            <view style="margin-top: 20rpx; font-size: 35rpx;">
+                                <text>描述： {{ item.content }}</text>
+                            </view>
+                            <view style="margin-top: 20rpx; text-align: left;">
+                                <van-image fit="contain" width="300rpx" height="300rpx" lazy-load src="{{ item.image }}" bind:click="previewImage" data-url="{{ item.image }}" />
+                            </view>
+                            <view class="home-header-line" />
+                            <view slot="footer" style="text-align: right;">
+                                <van-button type="primary" size="small" id="{{ item.id }}" bindtap="lost0Details">详 情</van-button>
+                            </view>
+                        </van-panel>
+                    </view>
+                </view>
+
+            </view>
+
+        </van-tab>
+    </van-tabs>
+
+    <!-- 弹窗 -->
+    <van-dialog id="van-dialog" />
+</view>

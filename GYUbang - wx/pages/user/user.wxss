@@ -1,0 +1,17 @@
+page {
+    background-color: rgb(236, 236, 236);
+}
+
+.username {
+    font-size: 40rpx;
+}
+
+.avatar {
+    margin: 0rpx 60rpx;
+}
+
+.logout {
+    width: 60%;
+    color: white;
+    background-color: red;
+}

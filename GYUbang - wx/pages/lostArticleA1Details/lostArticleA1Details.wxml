@@ -1,0 +1,62 @@
+<view style="display: flex; flex-direction: column; ">
+    <van-sticky>
+        <view style="box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.25); height: 100rpx; background-color: white;">
+            <text style="font-size: 46rpx; padding-left: 50rpx; line-height: 100rpx;">失物详情</text>
+        </view>
+    </van-sticky>
+
+    <view style="text-align: center; margin: 10rpx 0rpx;">
+        <van-image width="300" height="300" fit="cover" src="{{ lostArticle.image }}" bind:click="previewImage" data-url="{{ lostArticle.image }}" />
+    </view>
+
+    <view style="background-color: white; box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.25); padding: 0rpx 50rpx;">
+        <view style="margin: 40rpx 0rpx; font-size: 36rpx;">
+            <view style="height: 10rpx;"></view>
+            <view class="home-header-line" />
+            <view>
+                <van-icon name="manager-o" color="#347fc5" /> 失主：{{ lostArticle.author }}
+            </view>
+            <view class="home-header-line0" />
+            <view>
+                <van-icon name="phone-o" color="#347fc5" /> 联系方式：{{ lostArticle.tel }}
+            </view>
+            <view class="home-header-line0" />
+            <view>
+                <van-icon name="clock-o" color="#347fc5" /> 丢失日期：{{ lostArticle.time }}
+            </view>
+            <view class="home-header-line0" />
+            <view>
+                <van-icon name="comment-o" color="#347fc5" /> 丢失描述：
+            </view>
+            <view style="background-color: rgb(255, 255, 255); width: 85%; position: relative; left: 45rpx; top: 10rpx;">{{ lostArticle.content }}</view>
+            <view style="height: 10rpx;"></view>
+            <view class="home-header-line" />
+            <view style="height: 10rpx;"></view>
+        </view>
+    </view>
+
+    <view style="background-color: white; box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.25); padding: 0rpx 50rpx; margin: 20rpx 0rpx;">
+        <view style="margin: 40rpx 0rpx; font-size: 36rpx;">
+            <view>评论： </view>
+            <view class="home-header-line0" />
+            <textarea style=" border:2px solid #347fc5; border-radius: 8px; padding: 10rpx;" model:value="{{ content }}" placeholder="请输入评论..." auto-focus="true" />
+            <view class="home-header-line0" />
+            <view style="text-align: right;">
+                <van-button type="primary" size="normal" bindtap="addComment" style="position: relative; left: -22rpx; top: -2rpx">+发表评论</van-button>
+            </view>
+            <view class="home-header-line" />
+        </view>
+        <view wx:for="{{ Comment }}" wx:key="id">
+            <view style="height: 5rpx;" />
+            <van-image round width="50" height="50" fit="cover" src="{{ item.image }}"/>
+            <text style="position: relative; left: 10rpx; top: -60rpx; font-size: 36rpx; color: #000000;"> {{ item.nickname }}</text>
+            <view style="position: relative; left: 120rpx; top: -50rpx; font-size: 22rpx; color: #686868;">{{ item.time }}</view>
+            <view style="background-color: rgb(255, 255, 255); width: 80%; position: relative; left: 120rpx; top: -30rpx; font-size: 36rpx;">{{ item.content }}</view>
+            <view style="height: 1rpx;" />
+            <view class="home-header-line" />
+        </view>
+    </view>
+</view>
+<view style="text-align: center; color: rgb(110, 110, 110); margin-top: 50rpx;">—— 没有更多了 ——</view>
+<!-- 防止tabbar遮挡内容 -->
+<view style="height: 100rpx;" />

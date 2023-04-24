@@ -1,0 +1,21 @@
+<view>
+    <van-cell-group>
+        <van-field model:value="{{ nickName }}" size="large" clickable clearable label="昵 称：" placeholder="请输入昵称"/>
+    </van-cell-group>
+    <view style="height: 100rpx; display: flex;">
+        <text span="8" style="line-height: 100rpx; margin: 0 30rpx;">性 别：</text>
+        <van-radio-group style="margin-top: 30rpx; margin-left: 130rpx;" model:value="{{ sex }}" bind:change="onChange" direction="horizontal">
+            <van-radio name="{{ false }}">男</van-radio>
+            <van-radio name="{{ true }}">女</van-radio>
+        </van-radio-group>
+    </view>
+    <van-cell-group>
+        <van-field model:value="{{ college }}" size="large" clickable clearable label="学 院：" placeholder="请输入学院"/>
+    </van-cell-group>
+    <van-cell-group>
+        <van-field type="number" model:value="{{ buildingNum }}" size="large" clickable clearable label="楼栋号：" placeholder="请输入宿舍楼号" maxlength="2" />
+    </van-cell-group>
+    <view style="text-align: center; margin-top: 200rpx;">
+        <button bindtap="updata" type="primary" style="width: 50%;">保存信息</button>
+    </view>
+</view>

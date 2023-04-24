@@ -1,0 +1,19 @@
+<view>
+    <van-cell-group>
+        <van-field model:value="{{ tel }}" size="large" clickable clearable label="联系方式：" placeholder="请输入联系方式" />
+    </van-cell-group>
+    <van-cell-group>
+        <van-field model:value="{{ content }}"size="large" clickable clearable label="详细内容：" placeholder="请输入详细内容" autosize type="textarea"/>
+    </van-cell-group>
+    <view style="position: relative; left: 0rpx; top: 47rpx">
+        <text style="position: relative; left: 32rpx; top: 0rpx">实物图片：</text>
+        <van-uploader style="position: relative; left: 98rpx; top: 4rpx" file-list="{{ fileList }}" preview-image="true" bind:after-read="afterRead" />
+    </view>
+
+    <!-- 弹窗 -->
+    <van-dialog id="van-dialog" />
+
+    <view style="text-align: center; margin-top: 200rpx;">
+        <button bindtap="insertLost" type="primary" style="width: 50%; position: relative; left: 0rpx; top: 92rpx">发起申请</button>
+    </view>
+</view>

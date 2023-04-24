@@ -1,0 +1,12 @@
+/* pages/lostArticle/lostArticle.wxss */
+page {
+    background-color: rgb(236, 236, 236);
+}
+
+/*分割线样式*/
+.home-header-line {
+    background: #afafaf;
+    width: 100%;
+    /* border: 0.5rpx solid rgb(202, 202, 202); */
+    height: 1rpx;
+}

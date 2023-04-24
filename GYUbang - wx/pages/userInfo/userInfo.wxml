@@ -1,0 +1,22 @@
+<view>
+    <view style=" background-color: white; border-radius: 8px; ">
+        <van-row>
+            <van-col span="19">
+                <text style=" line-height:125rpx; margin-left: 35rpx;">头像</text>
+            </van-col>
+            <van-col span="5">
+                <van-image style="margin-right: 0;" round radius="8rpx" width="125rpx" height="125rpx" fit: contain src="{{ userInfo.avatar }}" />
+            </van-col>
+        </van-row>
+    </view>
+    <van-cell-group>
+        <van-cell title="昵称" value="{{ userInfo.nickName }}" border="{{ true }}" />
+        <van-cell title="性别" value="{{ userInfo.sex? '女':'男' }}" border="{{ true }}" />
+        <van-cell title="学院" value="{{ userInfo.college }}" border="{{ true }}" />
+        <van-cell title="楼栋" value="{{ userInfo.buildingNum }}" border="{{ true }}" />
+        <van-cell title="权限" value="{{ (userInfo.permission == 'user')? '用户':'管理'  }}" border="{{ true }}" />
+    </van-cell-group>
+    <view style="text-align: center; margin-top: 400rpx;">
+        <button bindtap="updata" type="primary" style="width: 50%;">修改信息</button>
+    </view>
+</view>

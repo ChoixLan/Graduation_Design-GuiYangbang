@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyu.dao.UserDao">
+
+    <update id="updateByOpenId" parameterType="com.gyu.domain.User">
+        update sys_user
+        <set>
+            <if test="avatar != null">
+                avatar = #{avatar},
+            </if>
+            <if test="nickName != null">
+                nick_name = #{nickName},
+            </if>
+            <if test="userName != null">
+                user_name = #{userName},
+            </if>
+            <if test="password != null">
+                password = #{password},
+            </if>
+            <if test="sex != null">
+                sex = #{sex},
+            </if>
+            <if test="college != null">
+                college = #{college},
+            </if>
+            <if test="buildingNum != null">
+                building_num = #{buildingNum},
+            </if>
+        </set>
+        <where>
+            <if test="openId != null">
+                open_id = #{openId}
+            </if>
+        </where>
+    </update>
+</mapper>

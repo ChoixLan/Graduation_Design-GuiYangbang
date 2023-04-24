@@ -1,0 +1,82 @@
+page {
+    background-color: rgb(236, 236, 236);
+}
+
+.swiperContainer {
+    margin-top: 15rpx;
+    bottom: 8rpx;
+    position: relative;
+}
+
+.imageContainer {
+    width: 100%;
+    margin-top: 10rpx;
+    height: 350rpx;
+}
+
+.turnItem {
+    height: 340rpx;
+}
+
+.itemImg {
+    position: absolute;
+    width: 99%;
+    height: 300rpx;
+    margin-top: 20rpx;
+    border-radius: 15rpx;
+}
+
+.imgActive {
+    opacity: 1;
+    height: 340rpx;
+    margin-top: 0rpx;
+    transition: all .2s ease-in 0s;
+}
+
+/* 指示点修饰 */
+.dots {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 25rpx;
+    display: flex;
+    justify-content: center;
+}
+
+.dot {
+    margin: 0 8rpx;
+    width: 18rpx;
+    height: 18rpx;
+    background-color: white;
+    border-radius: 8rpx;
+    transition: all .5s;
+}
+
+.dot.active {
+    width: 24rpx;
+    background: #03f841;
+}
+
+/*分割线样式*/
+.home-header-line {
+    background: #afafaf;
+    width: 100%;
+    /* border: 0.5rpx solid rgb(202, 202, 202); */
+    height: 1rpx;
+}
+
+.body {
+    /* display: flex; */
+    flex-direction: column;
+    width: 100%;
+}
+
+.header-class {
+    font-size: 40rpx;
+}
+
+.gotopBox {
+    position: fixed;
+    right: 83%;
+    bottom: 10%;
+}

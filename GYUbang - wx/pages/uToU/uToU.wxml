@@ -1,0 +1,61 @@
+<view class="body">
+    <view>
+        <image style="width: 750rpx; height: 318rpx; display: inline-block; box-sizing: border-box; box-shadow: 2rpx 2rpx 25rpx rgba(0, 0, 0, 0.55); border-radius: 8px; overflow: hidden" src="../../img/test_dailing.jpg" />
+    </view>
+    <van-sticky>
+        <view style="height: 100rpx; background-color: rgb(255, 255, 255); box-shadow: 2rpx 2rpx 20rpx rgba(0, 0, 0, 0.15); display: flex; justify-content: space-between;">
+            <text style="line-height: 100rpx; font-size: 46rpx; margin-left: 20rpx;">快递代领：</text>
+            <van-button style="margin: 5rpx 20rpx; position: relative; left: 66rpx; top: 0rpx" type="primary" size="normal" bindtap="insertMyUToU">发布悬赏</van-button>
+            <van-button style="margin: 5rpx 20rpx; " type="primary" size="normal" bindtap="MyUToU">我的悬赏</van-button>
+        </view>
+    </van-sticky>
+
+    <!-- 列表渲染快递代领信息 -->
+    <view wx:for="{{ UToU }}" wx:key="id">
+        <view wx:if="{{ !item.statusC }}">
+            <view wx:if="{{ !item.statusAx }}">
+                <view wx:if="{{ !item.statusB }}">
+                    <view style="padding: 10rpx 40rpx; background-color: white; margin: 20rpx 20rpx; border-radius: 13px; box-shadow: 2rpx 2rpx 15rpx rgba(5, 0, 2, 0.55);">
+                        <van-panel title="" desc="" status="">
+                            <view slot="header">
+                                <view style="margin-left: 20rpx; margin: 10rpx 0rpx; font-weight:600; font-size: 46rpx;">快递代领</view>
+                            </view>
+                            <view class="home-header-line" />
+                            <view style="height: 20rpx;" />
+                            <view style="margin-top: 20rpx; font-size: 35rpx;">
+                                <van-icon name="wap-home-o" />
+                                <text> 取件地址：{{ item.addressQ }}</text>
+                            </view>
+                            <view style="height: 20rpx;" />
+                            <view style="margin-top: 10rpx; font-size: 35rpx;">
+                                <van-icon name="logistics" />
+                                <text> 送件地址：{{ item.addressS }}</text>
+                            </view>
+                            <view style="height: 20rpx;" />
+                            <view style="margin-top: 10rpx; font-size: 35rpx;">
+                                <van-icon name="after-sale" />
+                                <text> 悬赏金额：{{ item.money }} 元</text>
+                            </view>
+                            <view style="height: 30rpx;" />
+                            <view class="home-header-line" />
+                            <view wx:if="{{ !(item.authorA == nickName) }}">
+                                <view slot="footer" style="text-align: right;">
+                                    <van-button type="primary" size="small" data-id="{{ item.id }}" bindtap="Receiving">接 取</van-button>
+                                </view>
+                            </view>
+                            <view wx:if="{{ (item.authorA == nickName) }}">
+                                <view slot="footer" style="text-align: right; line-height: 80rpx; font-size: 40rpx; color: rgb(187, 185, 75);">
+                                    您的悬赏还未被接取
+                                </view>
+                            </view>
+
+                        </van-panel>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+    </view>
+
+    <view style="height: 50rpx;" />
+</view>

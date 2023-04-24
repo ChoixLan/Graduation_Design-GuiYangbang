@@ -1,0 +1,54 @@
+<view>
+    <view style="padding: 0rpx 20rpx; background-color: white; margin: 10rpx 20rpx; border-radius: 8px;">
+        <van-search model:value="{{ container }}" label="" shape="round" background="" placeholder="请输入搜索关键词" use-action-slot>
+            <view slot="action">
+                <van-button type="primary" size="small" bindtap="onSearch">搜 索</van-button>
+            </view>
+        </van-search>
+    </view>
+    <view wx:for="{{ qAnnouncement }}" wx:key="index">
+        <view wx:if="{{ item.status }}" style="padding: 10rpx 40rpx; background-color: white; margin: 20rpx 20rpx; border-radius: 13px; box-shadow: 5rpx 5rpx 10rpx rgba(0, 0, 0, 0.25);">
+            <van-panel title="" desc="" status="">
+                <view slot="header">
+                    <view style="margin-left: 20rpx; margin: 10rpx 0rpx; font-weight:600; font-size: 40rpx;">{{ item.title }}</view>
+                </view>
+                <view style="margin-top: 10rpx; font-size: 25rpx; height: 50rpx; display: flex; justify-content: space-between;">
+                    <text>发布时间：{{ item.releaseTime }}</text>
+                    <text>楼号：{{ item.buildingNum }}栋</text>
+                </view>
+                <view class="home-header-line" />
+                <view style="height: 20rpx;" />
+                <view style="margin-top: 20rpx; font-size: 35rpx; height: 100rpx;">
+                    <text style="position: relative; left: 52rpx; top: 0rpx">{{ item.content }}</text>
+                </view>
+                <view style="height: 20rpx;" />
+                <view class="home-header-line" />
+                <view slot="footer" style="text-align: right;">
+                    <van-button type="primary" size="small" id="{{ item.id }}" bindtap="info">详 情</van-button>
+                </view>
+            </van-panel>
+
+            <!-- 详情弹窗 -->
+            <van-dialog use-slot title="{{ qAnnouncement0.title }}" show="{{ show }}" bind:close="onClose" bind:getuserinfo="getUserInfo">
+                <view class="home-header-line" style="margin-top: 20rpx;" />
+                <view style="height: 100%; margin-top: 50rpx; display: flex; flex-direction: column;">
+                    <text style="margin: 10rpx 40rpx;">楼号：{{ qAnnouncement0.buildingNum }}栋</text>
+                    <text style="margin: 10rpx 40rpx;">发布人：{{ qAnnouncement0.author }}</text>
+                    <text style="margin: 10rpx 40rpx;">发布时间：{{ qAnnouncement0.releaseTime }}</text>
+                    <text style="margin: 10rpx 40rpx;">内容：</text>
+                    <text style="margin: 0rpx 40rpx; margin-bottom: 90rpx;">{{ qAnnouncement0.content }}</text>
+                </view>
+            </van-dialog>
+        </view>
+    </view>
+
+    <!-- 回到顶部 -->
+    <scroll-view scroll-y scroll-top='{{topNum}}' bindscroll="scrolltoupper">
+        <view class="gotopBox" hidden='{{!cangotop}}' catchtap="goTopOn">
+            <image style="width: 100rpx; height: 100rpx;" src="/img/gotoTop1.png" />
+        </view>
+    </scroll-view>
+</view>
+
+<!-- 防止tabbar遮挡内容 -->
+<view style="height: 100rpx;" />

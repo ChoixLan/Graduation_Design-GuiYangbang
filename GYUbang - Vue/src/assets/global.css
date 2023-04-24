@@ -1,0 +1,24 @@
+/* 编写全局样式 */
+
+/* 主页面样式 */
+html, body, #app {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/**
+表格样式
+ */
+.el-table {
+    width: 100%;
+    margin: 20px 0px;
+}
+
+/**
+分页样式
+ */
+.el-pagination {
+    margin-top: 20px;
+    text-align: right;
+}
