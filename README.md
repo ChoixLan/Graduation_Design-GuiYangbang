@@ -5,7 +5,7 @@
 
 ![README01](https://user-images.githubusercontent.com/131634589/233904580-c00ef218-ebd2-4b41-b31f-db33ae67bdcc.jpg)
 
-目录结构
+IDEA目录结构
 
 ![2023-04-24_1239357](https://user-images.githubusercontent.com/131634589/233904906-1ddfbddb-a5a2-4548-9a42-6482cf62ea85.jpg)
 
@@ -36,7 +36,7 @@
 
 ![2023-04-24_12410812](https://user-images.githubusercontent.com/131634589/233904673-74f6db8f-220b-4532-95aa-3ef1ff77c903.jpg)
 
-目录结构
+WebStorm目录结构
 
 ![2023-04-24_12414813](https://user-images.githubusercontent.com/131634589/233904879-8db32838-0a65-4cba-a315-35d9d4b0ae76.jpg)
 
