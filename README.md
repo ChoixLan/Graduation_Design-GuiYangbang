@@ -1,11 +1,11 @@
 # Graduation_Design-GuiYangbang
-## 第一次自己写的毕业设计，虽然功能简陋、代码优化基本没有，但好歹是自己写的东西，放上来以后回过头来看看，说不定会被这个时候的自己逗笑。
+第一次自己写的毕业设计，虽然功能简陋、代码优化基本没有，但好歹是自己写的东西，放上来以后回过头来看看，说不定会被这个时候的自己逗笑。
 
-## 服务器后台：修改配置文件
+服务器后台：修改配置文件
 
 ![README01](https://user-images.githubusercontent.com/131634589/233904580-c00ef218-ebd2-4b41-b31f-db33ae67bdcc.jpg)
 
-#### 目录结构
+目录结构
 
 ![2023-04-24_1239357](https://user-images.githubusercontent.com/131634589/233904906-1ddfbddb-a5a2-4548-9a42-6482cf62ea85.jpg)
 
