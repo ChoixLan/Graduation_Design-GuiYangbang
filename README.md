@@ -26,7 +26,7 @@
 
 管理后台
 
-![2023-04-24_1240468](https://user-images.githubusercontent.com/131634589/233904663-48ec4574-03a3-45b1-894e-e0ce697e3286.jpg)
+![2023-04-24_1240468](https://user-images.githubusercontent.com/131634589/233905488-3aa4d1e6-2212-428d-bcdc-5304c82880aa.jpg)
 
 ![2023-04-24_1240519](https://user-images.githubusercontent.com/131634589/233904665-b8167650-7d33-4462-9d22-bb716f816b55.jpg)
 
